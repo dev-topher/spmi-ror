@@ -76,7 +76,12 @@ para crear la base de datos, insertar un usuario base estudiante y administrativ
 
 * 21/09/23 - Creación de proyecto. Creación de base de datos simple. Población de datos dummy (para uso comercial debe ser requerida la información de los estudiantes y administrativos asociados a la universidad, para más información, contactarme)
 
-* 22/09/23 - 
+* 22/09/23 - Vista pre login - Vista login - Vista registro - Vista recuperar contraseña
+
+* 23/09/23 - 
 
 ### TO-DO:
 
+* Vista información estudiante
+* Lógica de validación de estudiante
++ Dashboard administrativo

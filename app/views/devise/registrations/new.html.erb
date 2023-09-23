@@ -1,0 +1,37 @@
+<body class="bg-success d-flex justify-content-center align-items-center vh-100">
+  <div class="bg-white p-5 rounded-5 text-secondary shadow" style="width: 25rem">
+    <div class="d-flex justify-content-center">
+      <%= image_tag("login/login-icon.svg", alt: "username-icon", style: "height: 7rem") %>
+    </div>
+    <div class="text-center fs-1 fw-bold">Registrate</div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="input-group mt-4">
+        <div class="input-group-text bg-info">
+          <%= image_tag("login/username-icon.svg", alt: "username-icon", style: "height: 1rem") %>
+        </div>
+        <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+      </div>
+      <div class="input-group mt-1">
+        <div class="input-group-text bg-info">
+          <%= image_tag("login/password-icon.svg", alt: "username-icon", style: "height: 1rem") %>
+        </div>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Contraseña (6 caracteres mínimo)" %>
+      </div>
+      <div class="input-group mt-1">
+        <div class="input-group-text bg-info">
+          <%= image_tag("login/password-icon.svg", alt: "username-icon", style: "height: 1rem") %>
+        </div>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Repite la Contraseña" %>
+      </div>
+      
+      <%= f.submit "Inicia sesión", class: "btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" %>
+    <% end %>
+    <div class="d-flex gap-1 justify-content-center mt-1">
+      <div>¿Ya tienes una cuenta?</div>
+      <%= link_to "Inicia sesión", new_session_path(resource_name), class: "text-decoration-none text-info fw-semibold" %><br />
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+      <div class="text-center">Recuerda que debes rellenar la información de estudiante más adelante.</div>
+    </div>
+  </div>
+</body>
