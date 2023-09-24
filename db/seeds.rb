@@ -386,8 +386,8 @@ programs = [
 ]
 
 announcements = [
-  { name: 'Convocatoria 1', f_inicio: Date.new(2023, 1, 1), f_fin: Date.new(2023, 3, 1), min_creditos_sct: 150, max_creditos_sct: 85, ramos_reprobados: 3},
-  { name: 'Convocatoria 2', f_inicio: Date.new(2023, 3, 1), f_fin: Date.new(2023, 6, 1), min_creditos_sct: 150, max_creditos_sct: 85, ramos_reprobados: 3}
+  { name: 'Convocatoria 1', f_inicio: Date.new(2023, 1, 1), f_fin: Date.new(2023, 3, 1), min_creditos_sct: 150, max_creditos_sct: 85, ramos_reprobados: 3, program_id: 1},
+  { name: 'Convocatoria 2', f_inicio: Date.new(2023, 3, 1), f_fin: Date.new(2023, 6, 1), min_creditos_sct: 150, max_creditos_sct: 85, ramos_reprobados: 3, program_id: 2}
 ]
 
 Announcement.create(announcements)
@@ -436,7 +436,7 @@ User.create!(
 Admin.create!(
     name: 'Christopher Admin',
     area: 'TI dev testing',
-    users_id: 1,
+    user_id: 1,
 )
 
 Student.create!(
@@ -449,5 +449,6 @@ Student.create!(
     failed_subjects: 3,
     has_debts: false,
     has_intern_debts: false,
-    career_id: 1
+    career_id: 1,
+    user_id: 2,
 )

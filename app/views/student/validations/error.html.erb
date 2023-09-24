@@ -1,0 +1,53 @@
+<body>
+    <%= render "student/shared/navbar" %>
+
+    <div class="container">
+        <div class="row py-5">
+            <h2 class="text-center">Bienvenido/a Estudiante</h2>
+        </div>
+        <div class="row py-3" style="padding-top:15px; padding-bottom:15px">
+            <div class="d-flex justify-content-center">
+                <%= image_tag("students/login/validated/prohibido.png", alt: "postulacion-prohibida") %>
+
+            </div>
+        </div>
+        
+        <div class="row">
+            <span class="h4 text-center">Usted NO se encuentra habilitado para postular, los motivos pueden ser:</span>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ol>
+                    <% @errors.each do |error| %>
+                        <li><%= error %></li>
+                    <% end %>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row py-3">
+            <div class="col">
+                <span class="text_box">Recuerda que es sólo una postulación por convocatoria.</span>
+                <span class="text_box">Favor regularizar su problema y volver a intentar. Si el problema persiste, comunicarse con soporte@spmi.cl</span>
+
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-md-6" style="padding-top: 15px;">
+                <a class="btn btn-primary w-100" href="<%= root_path %>" role="button"><i class="fa-regular fa-folder-open"></i> Historial de postulación</a>
+            </div>
+            <div class="col-md-6" style="padding-top: 15px;">
+                <%= button_to "Logout", destroy_user_session_path, class: "btn btn-danger w-100", method: :delete %>
+            </div>
+        </div>
+    </div>
+
+    <%= render "shared/footer_text" %>
+
+</body>

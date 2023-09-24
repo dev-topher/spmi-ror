@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_22_002010) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_23_195910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
     t.string "area", null: false
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_admins_on_users_id"
+    t.index ["user_id"], name: "index_admins_on_user_id"
   end
 
   create_table "announcements", force: :cascade do |t|
@@ -142,6 +142,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_002010) do
     t.bigint "career_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["career_id"], name: "index_students_on_career_id"
   end
 
@@ -158,7 +159,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_002010) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "admins", "users", column: "users_id"
+  add_foreign_key "admins", "users"
   add_foreign_key "announcements", "programs"
   add_foreign_key "answers", "applies"
   add_foreign_key "answers", "questions"

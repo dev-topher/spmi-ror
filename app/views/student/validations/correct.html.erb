@@ -1,0 +1,86 @@
+<body>
+
+    <%= render "student/shared/navbar" %>
+
+    <div class="container">
+        <div class="row py-5">
+            <h2 class="text-center">Bienvenido/a Estudiante</h2>
+        </div>
+        <div class="row py-3">
+            <span class="text_box">Felicidades, usted se encuentra habilitado para realizar la postulación al programa de movilidad: <?= $programa['NOMBRE']; ?><br>
+            Verificar si la información suya es correcta, en caso contrario, favor de contactar a soporte@spmi.cl</span>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row py-5">
+            <h4 class="text-center">Información Académica del Estudiante</h4>
+        </div>
+        <div class="d-grid gap-2">
+            <div class="row">
+                <label class="col-md-4 control-label" for="nombre">Nombre Estudiante</label> 
+                <div clasS="col-md-8">
+                    <input class="form-control proh" type="text" name="nombre_estudiante" size="40" readonly="true" value="<%= @data_user.name %>">
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-4 control-label" for="RUT">RUT Estudiante</label>
+                <div clasS="col-md-8">
+                    <input class="form-control proh" type="number" name="RUT" readonly="true" value="<%= @data_user.rut %>">
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-4 control-label" for="nombre">Fecha de Nacimiento</label>
+                <div clasS="col-md-8">
+                    <input class="form-control proh" type="text" name="nacimiento" readonly="true" value="<%= @data_user.born_date %>">
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-4 control-label" for="nombre">N° de matrícula</label>
+                <div clasS="col-md-8">
+                    <input class="form-control proh" type="number" name="matricula" size="10" readonly="true" value="<%= @data_user.enrollment %>">
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-4 control-label" for="nombre">Email Institucional</label>
+                <div clasS="col-md-8">
+                    <input class="form-control proh" type="email" name="email_institucional" size="30" readonly="true" value="<%= current_user.email %>">
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-4 control-label" for="nombre">Universidad</label>
+                <div clasS="col-md-8">
+                    <input class="form-control proh" type="text" name="universidad" size="10" readonly="true" value="<%= @data_user.career.college.name %>">
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-4 control-label" for="nombre">Carrera</label>
+                <div clasS="col-md-8">
+                    <input class="form-control proh" type="carrera" name="carrera" size="10" readonly="true" value="<%= @data_user.career.name %>">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container center">
+        <div class="row py-5 gy-2">
+            <div class="col-6">
+                <a class="btn btn-primary w-100" href="<%= root_path %>" role="button"><i class="fa-regular fa-folder-open"></i> Historial de postulación</a>
+            </div>
+            <div class="col-6">
+                <a class="btn btn-success w-100" href="<%= root_path %>" role="button"><i class="fa-solid fa-circle-check"></i> Acceder al formulario</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="padding-top: 15px;">
+                <%= button_to "Logout", destroy_user_session_path, class: "btn btn-danger w-100", method: :delete %>
+            </div>
+        </div>
+    </div>
+
+    <%= render "shared/footer_text" %>
+
+</body>
